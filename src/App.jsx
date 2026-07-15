@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { ErrorBoundary } from "./components/ErrorBoundary";
-import { RegisterScreen, LoginScreen, OnboardSyllabus, OnboardState, OnboardGrade, OnboardSubject, OnboardTopic, OnboardPassion } from "./components/onboarding/Onboarding";
+import { RegisterScreen, LoginScreen, OnboardSyllabus, OnboardState, OnboardGrade, OnboardSubject, OnboardTopic, OnboardPassion } from "./components/Onboarding/Onboarding";
 import { RoadmapScreen } from "./components/screens/RoadmapScreen";
 import { ContentScreen } from "./components/screens/ContentScreen";
 import { DifficultyPicker } from "./components/screens/DifficultyPicker";
