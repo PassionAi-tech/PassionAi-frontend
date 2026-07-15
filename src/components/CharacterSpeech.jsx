@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { PassionCharacter } from "./characters/Characters";
+import { PassionCharacter } from "./characters";
 import { SmartText } from "./SmartText";
 
 const POSES = ["explain","think","cheer","wrong"];
