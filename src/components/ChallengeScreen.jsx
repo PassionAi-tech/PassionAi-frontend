@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useTTS } from "../../hooks/useTTS";
+import { useTTS } from "../hooks/useTTS";
 import { PASSIONS, DIFFICULTIES } from "../../data/curriculum";
 import { C } from "../../styles/theme";
 import { QuotaOverlay, TopBar, PBtn, GBtn } from "../common/UI";
