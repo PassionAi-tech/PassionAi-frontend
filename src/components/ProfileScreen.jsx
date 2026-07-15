@@ -1,7 +1,7 @@
 import React from "react";
-import { SYLLABI, PASSIONS } from "../../data/curriculum";
-import { C } from "../../styles/theme";
-import { Pali, XPBar } from "../common/UI";
+import { SYLLABI, PASSIONS } from "../data/curriculum";
+import { C } from "../styles/theme";
+import { Pali, XPBar } from "./UI";
 
 export function ProfileScreen({username,gameState,onChangeSyllabus,onChangeClass,onChangeSubject,syllabus,grade,subject,passion}) {
   const sData  = SYLLABI.find(s=>s.id===syllabus);
