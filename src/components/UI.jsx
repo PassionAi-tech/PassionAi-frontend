@@ -1,5 +1,5 @@
 import React from "react";
-import { C } from "../../styles/theme";
+import { C } from "../styles/theme";
 
 export function XPBar({xp,level}) {
   const next=level*300, pct=Math.min((xp/next)*100,100);
