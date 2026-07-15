@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useTTS } from "../hooks/useTTS";
 import { PASSIONS, DIFFICULTIES } from "../data/curriculum";
 import { C } from "../styles/theme";
-import { QuotaOverlay, TopBar, PBtn, GBtn } from "../common/UI";
+import { QuotaOverlay, TopBar, PBtn, GBtn } from "../UI";
 import { CharacterSpeech } from "../CharacterSpeech";
 import { callAI, fetchChallenge, FB_CHALLENGE } from "../services/api";
 
