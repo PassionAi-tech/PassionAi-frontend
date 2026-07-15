@@ -11,7 +11,7 @@ import { ProfileScreen } from "./components/ProfileScreen";
 import { BottomNav } from "./components/BottomNav";
 import { UNIT_STAGES, UNIT_XP } from "./data/Curriculum";
 import { fetchIntro, fetchDeepDive, fetchMastery, FB_INTRO, FB_DEEPDIVE, FB_MASTERY } from "./services/api";
-import { C } from "./styles/Theme";
+import { C } from "./styles/theme";
 
 export default function PassionAI() {
   const [screen,     setScreen]     = useState("register");
