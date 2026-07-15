@@ -1,7 +1,7 @@
 import React from "react";
-import { PASSIONS, UNIT_STAGES, UNIT_ICONS, UNIT_XP } from "../../data/curriculum";
-import { C, UNIT_COLORS } from "../../styles/theme";
-import { TopBar } from "../common/UI";
+import { PASSIONS, UNIT_STAGES, UNIT_ICONS, UNIT_XP } from "../data/curriculum";
+import { C, UNIT_COLORS } from "../styles/theme";
+import { TopBar } from ".UI";
 
 export function RoadmapScreen({passion,subject,topic,gameState,completed,onStage,onBack}) {
   const pLabel = PASSIONS.find(p=>p.id===passion)?.label||passion;
