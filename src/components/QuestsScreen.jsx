@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { C } from "../../styles/theme";
-import { StatsRow } from "../common/UI";
+import { C } from "../styles/theme";
+import { StatsRow } from "./UI";
 
 const QUEST_POOL = [
   { id:"q1",  title:"First Lesson",       desc:"Complete the Introduction of any topic",  xp:60,  gems:5,  icon:"📖" },
