@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useTTS } from "../../hooks/useTTS";
-import { PASSIONS, UNIT_STAGES, UNIT_ICONS } from "../../data/curriculum";
-import { C, UNIT_COLORS, cardAccents } from "../../styles/theme";
-import { QuotaOverlay, TopBar, PBtn, GBtn } from "../common/UI";
-import { SmartText } from "../SmartText";
-import { CharacterSpeech } from "../CharacterSpeech";
+import { useTTS } from "../hooks/useTTS";
+import { PASSIONS, UNIT_STAGES, UNIT_ICONS } from "../data/curriculum";
+import { C, UNIT_COLORS, cardAccents } from "../styles/theme";
+import { QuotaOverlay, TopBar, PBtn, GBtn } from "./UI";
+import { SmartText } from "./SmartText";
+import { CharacterSpeech } from "./CharacterSpeech";
 
 export function ContentScreen({passion,subject,topic,cls,stage,fetchFn,fallbackFn,onComplete,onBack,gameState,completedStages,passionId}) {
   const [pages,   setPages]   = useState(null);
