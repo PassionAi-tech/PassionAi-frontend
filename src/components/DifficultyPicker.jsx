@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { DIFFICULTIES } from "../data/curriculum";
 import { C } from "../styles/theme";
 import { TopBar, PBtn } from "../UI";
-import { CharacterSpeech } from "../CharacterSpeech";
+import { CharacterSpeech } from "./CharacterSpeech";
 
 export function DifficultyPicker({passion,topic,gameState,onSelect,onBack}) {
   const [selected, setSelected] = useState(null);
