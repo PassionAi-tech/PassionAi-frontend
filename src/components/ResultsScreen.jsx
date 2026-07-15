@@ -1,7 +1,7 @@
 import React from "react";
-import { DIFFICULTIES } from "../../data/curriculum";
-import { C } from "../../styles/theme";
-import { StatsRow, PaliBubble, PBtn } from "../common/UI";
+import { DIFFICULTIES } from "../data/curriculum";
+import { C } from "../styles/theme";
+import { StatsRow, PaliBubble, PBtn } from "./UI";
 
 export function ResultsScreen({score,total,difficulty,topic,onContinue,gameState}) {
   const diffData = DIFFICULTIES.find(d=>d.id===difficulty)||DIFFICULTIES[0];
