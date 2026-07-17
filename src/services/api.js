@@ -85,7 +85,7 @@ export async function callAI(prompt, maxTokens=700, passion="", topic="") {
 
   // ── FORCED GENERATION PROCEDURE ──────────────────────────────────
   // This is a step order the model must execute, not a personality to adopt.
-  const fullSystem = 'You are Champ.
+  const fullSystem =  `You are Champ.
 
 You are NOT a school teacher using passion examples.
 
