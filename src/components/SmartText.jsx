@@ -4,10 +4,26 @@ export function SmartText({text, style={}}) {
   if (!text) return null;
   
   // Split into lines and render each with smart formatting
-  const lines = text.split(/\n|\. (?=[A-Z🔢💡📐])/);
+const lines = text
+  .replace(/\r/g, "")
+  .split(/\n+/)
+  .flatMap(line =>
+    line.split(/(?<=[.!?])\s+(?=[A-Z])/)
+  );
   
   return (
-    <div style={{display:"flex",flexDirection:"column",gap:"8px",...style}}>
+    <div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+    width: "100%",
+    whiteSpace: "pre-wrap",
+    wordBreak: "break-word",
+    overflowWrap: "anywhere",
+    ...style,
+  }}
+>
       {lines.map((line,i) => {
         if (!line.trim()) return null;
         
@@ -36,7 +52,7 @@ export function SmartText({text, style={}}) {
           return (
             <div key={i} style={{display:"flex",gap:"8px",alignItems:"flex-start"}}>
               <div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#FF6B2B",marginTop:"6px",flexShrink:0}}/>
-              <span style={{fontSize:"13px",color:"#BCC5E8",lineHeight:"1.7"}}>{line.trim()}</span>
+              <span style={{fontSize:"15px",color:"#BCC5E8",lineHeight:"1.7"}}>{line.trim()}</span>
             </div>
           );
         }
