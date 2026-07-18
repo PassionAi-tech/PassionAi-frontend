@@ -245,7 +245,11 @@ PROFESSIONAL IMMERSION RULES
     const rawText = (d.content||[]).map(b=>b.text||"").join("");
     console.log("%c[callAI] Extracted text before JSON parse", "color:#22C97A", rawText.slice(0, 400));
 
-    const parsed = JSON.parse(cleanJson(rawText));
+    const cleaned = cleanJson(rawText);
+
+console.log("CLEANED JSON:", cleaned);
+
+const parsed = JSON.parse(cleaned);
     console.log("%c[callAI] Successfully parsed lesson JSON — REAL AI-GENERATED CONTENT, not fallback", "color:#22C97A;font-weight:bold", {
       pageCount: parsed?.pages?.length || parsed?.questions?.length || "n/a",
       firstPageTitle: parsed?.pages?.[0]?.title || parsed?.questions?.[0]?.question || "n/a",
