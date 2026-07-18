@@ -176,6 +176,8 @@ After teaching through the sequence, explicitly name the textbook term/formula s
 HARD RULES:
 PROFESSIONAL IMMERSION RULES
 
+- A passion scenario is invalid if removing the passion leaves the exact same lesson unchanged. The professional must need the concept to make a real decision inside that passion.
+
 - Never say "Imagine football..." or "Let's take football as an example."
 
 - Never announce that you are using the student's passion.
