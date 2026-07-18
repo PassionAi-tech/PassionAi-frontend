@@ -56,16 +56,6 @@ export function ContentScreen({passion,subject,topic,cls,stage,fetchFn,fallbackF
   const cur    = pages?.[idx];
   const cardCol= cardAccents[idx%cardAccents.length];
   const isLast = pages&&idx===pages.length-1;
-  // Auto-read card body only ONCE when card changes — not Champ dialogue
-  const spokenRef = useRef(-1);
-  useEffect(()=>{
-    if (!pages || !pages[idx] || loading) return;
-    if (spokenRef.current === idx) return; // don't repeat same card
-    spokenRef.current = idx;
-    const t = setTimeout(()=>{
-    }, 700);
-    return ()=>clearTimeout(t);
-  },[idx, pages, loading]);
 
   const goNext = ()=>{ stop(); setVisible(false); setTimeout(()=>{ setIdx(i=>i+1); setVisible(true); },220); };
   const goPrev = ()=>{ stop(); setVisible(false); setTimeout(()=>{ setIdx(i=>i-1); setVisible(true); },220); };
