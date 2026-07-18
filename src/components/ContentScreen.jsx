@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useTTS } from "../hooks/useTTS";
 import { PASSIONS, UNIT_STAGES, UNIT_ICONS } from "../data/curriculum";
 import { C, UNIT_COLORS, cardAccents } from "../styles/theme";
-import { QuotaOverlay, TopBar, PBtn, GBtn } from "./UI";
+import { QuotaOverlay, TopBar, PBtn, GBtn, Pali } from "./UI";
 import { SmartText } from "./SmartText";
-import { CharacterSpeech } from "./CharacterSpeech";
 
 export function ContentScreen({passion,subject,topic,cls,stage,fetchFn,fallbackFn,onComplete,onBack,gameState,completedStages,passionId}) {
   const [pages,   setPages]   = useState(null);
@@ -64,7 +63,6 @@ export function ContentScreen({passion,subject,topic,cls,stage,fetchFn,fallbackF
     if (spokenRef.current === idx) return; // don't repeat same card
     spokenRef.current = idx;
     const t = setTimeout(()=>{
-      speak(pages[idx].body);
     }, 700);
     return ()=>clearTimeout(t);
   },[idx, pages, loading]);
@@ -118,9 +116,62 @@ export function ContentScreen({passion,subject,topic,cls,stage,fetchFn,fallbackF
               <SmartText text={cur.body}/>
             </div>
 
-            {/* Character speech */}
-            <CharacterSpeech passionId={passion} text={cur.body} speaking={speaking}
-              onSpeak={()=>speaking?stop():speak(`${cur.title}. ${cur.body}`)}/>
+            <div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    background: "#2D2D2D",
+    border: "1px solid #444",
+    borderRadius: "16px",
+    padding: "12px 16px",
+  }}
+>
+  <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+    <Pali speaking={speaking} size={42} />
+
+    <div>
+      <div
+        style={{
+          fontWeight: 800,
+          color: "#FFD600",
+          fontSize: "13px",
+        }}
+      >
+        CHAMP
+      </div>
+
+      <div
+        style={{
+          fontSize: "13px",
+          color: "#BCC5E8",
+        }}
+      >
+        Tap below to listen to this lesson.
+      </div>
+    </div>
+  </div>
+
+  <button
+    onClick={() =>
+      speaking
+        ? stop()
+        : speak(`${cur.title}. ${cur.body}`)
+    }
+    style={{
+      background: speaking ? "#22C97A" : "#FF6B2B",
+      color: "#fff",
+      border: "none",
+      borderRadius: "12px",
+      padding: "10px 16px",
+      cursor: "pointer",
+      fontWeight: "700",
+      transition: "0.2s",
+    }}
+  >
+    {speaking ? "🔊 Playing..." : "▶ Listen"}
+  </button>
+</div>
 
             <div style={{display:"flex",gap:"10px"}}>
               {idx>0&&<GBtn onClick={goPrev} style={{flex:1,textAlign:"center"}}>← Prev</GBtn>}
