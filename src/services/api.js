@@ -130,34 +130,25 @@ Do NOT simply decorate the lesson with the passion. The passion must be the envi
 
 If the first scenario feels forced or could easily work for a different passion just by changing a few words, reject it and create a better one before continuing.
 
-STEP 2 — BUILD A PASSION-NATIVE PROFESSIONAL SCENARIO.
+STEP 2 — BUILD A PASSION-NATIVE SCENARIO.
 
-Do not start by adding passion words to a textbook example.
+Create a named professional inside the passion performing a real task where the textbook concept is naturally required.
 
-First imagine a real professional situation where the concept is naturally used during work, training, competition, or decision-making inside that passion.
+The concept must be discovered from the professional situation, not attached afterward.
 
-Create a named person with a clear role:
-- football → coach, analyst, player, goalkeeper, scout
-- cricket → batter, bowler, analyst
-- gaming → esports player, game designer, strategist
-- music → producer, performer, composer
+The sequence must show WHY the concept exists.
 
-The concept must be something that professional would genuinely measure, calculate, compare, predict, or use.
+Weak example (reject):
+"Marcus runs at 8.5 m/s. His ball weighs 425g. These are real numbers."
 
-The scenario must contain:
-1. A named person.
-2. A real professional goal or problem.
-3. A sequence of 3 or more connected events.
-4. Numbers produced naturally by those events.
-5. The textbook concept discovered from those numbers.
+This only lists numbers.
 
-BAD:
-"Marcus runs at 8.5 m/s and the ball weighs 430g. These are real numbers."
+Strong example:
+"Football analyst Marcus records a winger's training session. Sprint 1 takes 4.2 seconds, Sprint 2 takes 4.5 seconds, Sprint 3 takes 4.1 seconds. The analyst needs to compare these measurements, including decimals, to evaluate performance. These measurements belong to Real Numbers because professional football uses exact quantities like speed, distance, and time."
 
-GOOD:
-"Football analyst Rahul is preparing a winger for a sprint drill. During three runs, Marcus records speeds of 8.5 m/s, 8.8 m/s, and 8.2 m/s. Rahul compares these measurements to calculate the average speed. These decimal values and whole numbers are examples of Real Numbers."
+The numbers must have a purpose inside the passion.
 
-The numbers should exist because the professional needs them, not because the lesson needs them.
+Do not add random passion facts just to mention the passion.
 
 STEP 3 — SELF-CHECK BEFORE WRITING (do this silently, don't output it):
 (a) "Is there a NAMED individual and a SEQUENCE of at least 2-3 numbered events/attempts, not just one generic snapshot?"
