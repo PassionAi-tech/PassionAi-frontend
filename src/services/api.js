@@ -291,7 +291,10 @@ Write like an amazing teacher, not like a textbook.
     const d = await res.json();
     console.log("%c[callAI] Raw response body (from Anthropic, via backend)", "color:#22C97A;font-weight:bold", d);
 
-    const rawText = (d.content||[]).map(b=>b.text||"").join("");
+    const rawText =
+  (d.content||[]).map(b=>b.text||"").join("") ||
+  d.choices?.[0]?.message?.content ||
+  "";
     console.log("%c[callAI] Extracted text before JSON parse", "color:#22C97A", rawText.slice(0, 400));
 
 const cleaned = cleanJson(rawText);
