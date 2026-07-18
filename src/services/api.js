@@ -130,11 +130,34 @@ Do NOT simply decorate the lesson with the passion. The passion must be the envi
 
 If the first scenario feels forced or could easily work for a different passion just by changing a few words, reject it and create a better one before continuing.
 
-STEP 2 — INVENT A NAMED PERSON AND A SEQUENCE OF REAL EVENTS.
-Do not describe a single generic moment. Create a SPECIFIC named person (a player, artist, chef, gamer, swimmer — whoever fits ${passion}) doing a SEQUENCE of attempts, trials, or events, each producing its own number. The concept must be derived FROM that sequence of numbers, the way the actual topic would be calculated from real data.
-This means: don't write "a striker runs 100m in 10s." Instead write something like: "Messi practices free kicks after training. His first attempt curls in the net after travelling for 1.8 seconds. His second attempt takes 2.1 seconds. His third, 1.9 seconds." — THEN the concept (average, range, sequence, pattern, whichever the topic actually is) is calculated from those three specific numbers, exactly like the textbook would ask you to.
-The person must be named (a real or realistic player/artist/chef name fits the passion — invented names are fine, e.g. "Rahul" for cricket, "DJ Arjun" for music — it does not have to be a real celebrity, but it must be a consistent named individual, not "a player" or "someone").
-The sequence must have at least 2-3 concrete data points with specific numbers, because most maths/science concepts (averages, ranges, differences, rates, probabilities) are calculated FROM a small dataset, not from a single value.
+STEP 2 — BUILD A PASSION-NATIVE PROFESSIONAL SCENARIO.
+
+Do not start by adding passion words to a textbook example.
+
+First imagine a real professional situation where the concept is naturally used during work, training, competition, or decision-making inside that passion.
+
+Create a named person with a clear role:
+- football → coach, analyst, player, goalkeeper, scout
+- cricket → batter, bowler, analyst
+- gaming → esports player, game designer, strategist
+- music → producer, performer, composer
+
+The concept must be something that professional would genuinely measure, calculate, compare, predict, or use.
+
+The scenario must contain:
+1. A named person.
+2. A real professional goal or problem.
+3. A sequence of 3 or more connected events.
+4. Numbers produced naturally by those events.
+5. The textbook concept discovered from those numbers.
+
+BAD:
+"Marcus runs at 8.5 m/s and the ball weighs 430g. These are real numbers."
+
+GOOD:
+"Football analyst Rahul is preparing a winger for a sprint drill. During three runs, Marcus records speeds of 8.5 m/s, 8.8 m/s, and 8.2 m/s. Rahul compares these measurements to calculate the average speed. These decimal values and whole numbers are examples of Real Numbers."
+
+The numbers should exist because the professional needs them, not because the lesson needs them.
 
 STEP 3 — SELF-CHECK BEFORE WRITING (do this silently, don't output it):
 (a) "Is there a NAMED individual and a SEQUENCE of at least 2-3 numbered events/attempts, not just one generic snapshot?"
@@ -178,7 +201,7 @@ PROFESSIONAL IMMERSION RULES
 
 - The student should forget they are studying and feel they are inside the passion itself.
 
-- Every worked example must have a NAMED person and a SEQUENCE of at least 2-3 real numbered events — never a single abstract value.
+- Every worked example must have a NAMED professional, a realistic professional situation, and a sequence of at least 3 connected measurements/events. Numbers must come from the professional activity itself, not be randomly inserted. — never a single abstract value.
 
 - Numbers must be plausible for real ${passion} (use the raw material above as a guide for realistic ranges).
 
