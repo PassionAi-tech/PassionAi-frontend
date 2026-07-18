@@ -318,7 +318,7 @@ Return ONLY valid JSON, no markdown, no backticks:
     }
   ]
 }
-Minimum 6 pages, each a DIFFERENT, SPECIFIC ${passion} scenario — not the same generic setup with different numbers. Curriculum-accurate for Class ${cls} ${subject}. NO questions anywhere.`, 1200, passion, topic);
+Minimum 6 pages, each a DIFFERENT, SPECIFIC ${passion} scenario — not the same generic setup with different numbers. Curriculum-accurate for Class ${cls} ${subject}. NO questions anywhere.`, 4000, passion, topic);
 }
 
 export async function fetchDeepDive(passion, subject, topic, cls) {
