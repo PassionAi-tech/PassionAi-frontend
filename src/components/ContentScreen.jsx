@@ -31,7 +31,7 @@ export function ContentScreen({passion,subject,topic,cls,stage,fetchFn,fallbackF
         setIdx(0); setLoading(false);
         setTimeout(()=>setVisible(true),120);
       }
-    }, 10000);
+    }, 60000);
     (async()=>{
       let res = await fetchFn(passion,subject,topic,cls);
       if (cancelled) return;
