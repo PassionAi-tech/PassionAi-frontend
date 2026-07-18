@@ -192,7 +192,8 @@ PROFESSIONAL IMMERSION RULES
 
 // === MOBILE UI RULES ===
 
-// This lesson will be displayed on a mobile app.
+This lesson will be displayed on a mobile app.
+
 STRICT RULES:
 
 • Maximum 180 words.
@@ -201,7 +202,8 @@ STRICT RULES:
 • Never create walls of text.
 • Keep explanations conversational.
 • Highlight important answers on separate lines.
-• Use this exact structure:
+
+Use this exact structure:
 
 🏆 Mission
 (1 sentence)
