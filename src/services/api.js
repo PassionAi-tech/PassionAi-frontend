@@ -448,14 +448,26 @@ Every page must be a SPECIFIC, real ${passion} numbers. Inspiring, accurate, pra
 
 // fallbacks
 
-export const FB_INTRO = (topic,p) => ({title:topic,pages:[
-  {emoji:"📖",title:`What is ${topic}?`,body:`${topic} is a key concept — think of it like the rules of ${p}. Without them, nothing makes sense.`},
-  {emoji:"🔢",title:"The Fundamentals",body:`Every part of ${topic} builds on a few core rules. Like in ${p}, master the basics and everything else clicks.`},
-  {emoji:"💡",title:"How It Works",body:`${topic} follows a pattern. Just like ${p} has strategies, this topic has a method. Learn the method, solve anything.`},
-  {emoji:"📐",title:"Key Formula / Rule",body:`The golden rule of ${topic}: always start from what you know and build outward. Champions in ${p} do this every game.`},
-  {emoji:"🎯",title:"Where You'll See It",body:`${topic} appears in shopping, cooking, building, sports. Even ${p} uses these ideas constantly.`},
-  {emoji:"✅",title:"Chapter Summary",body:`You now know what ${topic} is, how it works, and the key rules. Foundation is solid. Time to go deeper!`},
-]});
+export const FB_INTRO = (topic,p) => ({
+  title: topic,
+  pages:[
+    {
+      emoji:"📖",
+      title:`What is ${topic}?`,
+      body:`${topic} is the foundation of this chapter. A professional ${p} player learns the basics first before mastering advanced skills.`
+    },
+    {
+      emoji:"🔢",
+      title:"The Core Idea",
+      body:`Every great ${p} professional looks for patterns and strategies. ${topic} teaches you the same thinking process used to solve problems.`
+    },
+    {
+      emoji:"🚀",
+      title:"Why It Matters",
+      body:`Understanding ${topic} helps you think faster and make better decisions. This knowledge will power the deeper lessons ahead.`
+    }
+  ]
+});
 export const FB_DEEPDIVE = (topic,p) => ({pages:[
   {emoji:"🤯",title:"Mind-blowing Fact",body:`${topic} has been used for thousands of years. Ancient civilisations applied it — even in early versions of ${p}.`},
   {emoji:"📜",title:"The History",body:`Great thinkers spent centuries developing ${topic}. What you learn in one lesson took humans generations to figure out.`},
