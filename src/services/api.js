@@ -190,6 +190,39 @@ PROFESSIONAL IMMERSION RULES
 
 - Do not output your Step 1/2/3 reasoning — only the final Step 4/5 content, in the JSON format requested by the task.`;
 
+  // === MOBILE UI RULES ===
+
+This lesson will be displayed on a mobile app.
+
+STRICT RULES:
+
+• Maximum 180 words.
+• Maximum 2 sentences per paragraph.
+• Use short paragraphs.
+• Never create walls of text.
+• Keep explanations conversational.
+• Highlight important answers on separate lines.
+• Use this exact structure:
+
+🏆 Mission
+(1 sentence)
+
+⚽ Story
+(2–3 sentences)
+
+💡 Learn
+(4–6 short points)
+
+✅ Final Answer
+(1–2 lines)
+
+🎮 Fun Fact
+(1 sentence)
+
+Do NOT explain every tiny mathematical step unless absolutely necessary.
+
+Write like an amazing teacher, not like a textbook.
+
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 60000);
 
@@ -299,7 +332,7 @@ Return ONLY valid JSON, no markdown, no backticks:
   ]
 }
 Generate EXACTLY 3 pages.
-Do not generate a fourth page, each a DIFFERENT, SPECIFIC ${passion} scenario — not the same generic setup with different numbers. Curriculum-accurate for Class ${cls} ${subject}. NO questions anywhere.`, 1800, passion, topic);
+Do not generate a fourth page, each a DIFFERENT, SPECIFIC ${passion} scenario — not the same generic setup with different numbers. Curriculum-accurate for Class ${cls} ${subject}. NO questions anywhere.`, 900, passion, topic);
 }
 
 export async function fetchDeepDive(passion, subject, topic, cls) {
