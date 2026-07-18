@@ -190,10 +190,9 @@ PROFESSIONAL IMMERSION RULES
 
 - Do not output your Step 1/2/3 reasoning — only the final Step 4/5 content, in the JSON format requested by the task.`;
 
-  // === MOBILE UI RULES ===
+// === MOBILE UI RULES ===
 
-This lesson will be displayed on a mobile app.
-
+// This lesson will be displayed on a mobile app.
 STRICT RULES:
 
 • Maximum 180 words.
