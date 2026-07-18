@@ -44,7 +44,7 @@ function cleanJson(raw) {
   return m ? m[0] : s;
 }
 /**
- * Core Claude API call with passion-first system prompt
+ * Core Gemini API call with passion-first system prompt
  * The system prompt is injected BEFORE the user prompt to make passion
  * the lens through which the entire lesson is conceived — not added afterward.
  * @param {string} prompt - The lesson generation prompt
@@ -191,17 +191,11 @@ PROFESSIONAL IMMERSION RULES
 - Do not output your Step 1/2/3 reasoning — only the final Step 4/5 content, in the JSON format requested by the task.`;
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 12000);
+  const timeout = setTimeout(() => controller.abort(), 30000);
 
   // ── DIAGNOSTIC LOGGING ────────────────────────────────────────────
-  // NOTE: this now calls OUR backend (API_BASE), not api.anthropic.com
-  // directly. Two confirmed blockers made the direct call impossible:
-  //   1. No x-api-key header -> 401 authentication_error from Anthropic
-  //   2. Anthropic rejects browser-origin calls outright -> CORS block,
-  //      which happens BEFORE any header would even matter.
-  // The backend holds the real key server-side and forwards the request,
-  // which sidesteps both: server-to-server calls aren't subject to
-  // browser CORS, and the key never reaches client-side code at all.
+  // NOTE: this calls OUR backend (API_BASE).
+// Backend securely communicates with Gemini API.
   const endpoint = `${API_BASE}/generate`;
   console.log("%c[callAI] Sending request to backend", "color:#FF6B2B;font-weight:bold", {
     endpoint, passion, topic, maxTokens,
