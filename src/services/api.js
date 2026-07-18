@@ -282,43 +282,24 @@ Return ONLY valid JSON, no markdown, no backticks:
   "title": "${topic}",
   "pages": [
     {
-      "emoji": "📖",
-      "title": "[Specific ${passion} scenario name, not generic]",
-      "body": "The opening concept, taught via a ${passion} scenario per the procedure above. End by connecting back to the textbook term."
+      "emoji":"📖",
+      "title":"...",
+      "body":"..."
     },
     {
-      "emoji": "🔢",
-      "title": "[Specific ${passion} scenario name for first sub-topic]",
-      "body": "First sub-topic, taught via a DIFFERENT ${passion} scenario. Full worked numbers. Connect back to textbook term. State the common mistake."
+      "emoji":"🔢",
+      "title":"...",
+      "body":"..."
     },
     {
-      "emoji": "💡",
-      "title": "[Specific ${passion} scenario name for second sub-topic]",
-      "body": "Second sub-topic, another distinct ${passion} scenario. Full worked numbers. When this does NOT apply. Connect back to textbook term."
-    },
-    {
-      "emoji": "📐",
-      "title": "[Specific ${passion} scenario name for third sub-topic]",
-      "body": "Third sub-topic, another distinct scenario. Full working. A shortcut/pattern. Connect back to textbook term."
-    },
-    {
-      "emoji": "🎯",
-      "title": "[Specific ${passion} scenario name for fourth sub-topic]",
-      "body": "Fourth sub-topic, another distinct scenario. Full working. What goes wrong if misapplied. Connect back to textbook term."
-    },
-    {
-      "emoji": "🧩",
-      "title": "[Specific big combined ${passion} scenario name]",
-      "body": "One complete scenario requiring ALL chapter concepts together. Full step-by-step. Name each textbook formula as it's used. Exam level."
-    },
-    {
-      "emoji": "✅",
-      "title": "Champ's Formula Sheet",
-      "body": "Every formula from this chapter, each with its official textbook name AND the one-line ${passion} scenario that taught it. Exam tip on picking the right formula."
+      "emoji":"💡",
+      "title":"...",
+      "body":"..."
     }
   ]
 }
-Minimum 6 pages, each a DIFFERENT, SPECIFIC ${passion} scenario — not the same generic setup with different numbers. Curriculum-accurate for Class ${cls} ${subject}. NO questions anywhere.`, 4000, passion, topic);
+Generate EXACTLY 3 pages.
+Do not generate a fourth page, each a DIFFERENT, SPECIFIC ${passion} scenario — not the same generic setup with different numbers. Curriculum-accurate for Class ${cls} ${subject}. NO questions anywhere.`, 1800, passion, topic);
 }
 
 export async function fetchDeepDive(passion, subject, topic, cls) {
