@@ -194,9 +194,12 @@ PROFESSIONAL IMMERSION RULES
 // === MOBILE UI RULES ===
 
 This lesson will be displayed on a mobile app.
+
 STRICT RULES:
 
-• Maximum 180 words.
+• Maximum 80 words PER PAGE.
+• Introduction must have exactly 3 short mobile pages.
+• Each page should feel like one swipe/card.
 • Maximum 2 sentences per paragraph.
 • Use short paragraphs.
 • Never create walls of text.
@@ -303,40 +306,60 @@ console.log("%c[callAI] Successfully parsed lesson JSON — REAL AI-GENERATED CO
 }
 
 export async function fetchIntro(passion, subject, topic, cls) {
-  return callAI(`TASK: Teach the FULL chapter "${topic}" in ${subject} for Class ${cls}, following your generation procedure exactly.
+  return callAI(`TASK: Create the INTRODUCTION of "${topic}" for Class ${cls} ${subject}.
 
-For EACH page below, do this in order:
-1. UNDERSTAND: identify the specific curriculum sub-concept for this page.
-2. FIND: locate a real ${passion} scenario where that exact relationship already occurs (use your raw material numbers).
-3. SELF-CHECK: would this scenario still make identical sense if ${passion} were swapped for a different passion? If yes, pick a more specific/embedded scenario.
-4. TEACH: write the explanation living inside that scenario, formula discovered from within it, full worked numbers.
-5. CONNECT BACK: name the official textbook term/formula so the student maps it to their syllabus.
+IMPORTANT:
+This is the first lesson screen.
+Do NOT complete the whole chapter.
+The goal is to make the student understand the chapter and become curious.
 
-Return ONLY valid JSON, no markdown, no backticks:
+Create EXACTLY 3 mobile pages.
+
+PAGE 1:
+Explain what "${topic}" is about.
+Use a natural ${passion} situation.
+
+PAGE 2:
+Explain the first important idea of "${topic}".
+Use a different ${passion} situation.
+
+PAGE 3:
+Explain why "${topic}" matters in real ${passion} careers or real life.
+Prepare the student for the next stage.
+
+RULES:
+- Each page maximum 70 words.
+- Short mobile-friendly paragraphs.
+- No questions.
+- No markdown.
+- Do not use "Imagine football" or "Let's take football as an example".
+- The passion must naturally be part of the explanation.
+
+Return ONLY valid JSON:
+
 {
   "title": "${topic}",
   "pages": [
     {
-      "emoji":"📖",
-      "title":"...",
-      "body":"..."
+      "emoji": "📖",
+      "title": "",
+      "body": ""
     },
     {
-      "emoji":"🔢",
-      "title":"...",
-      "body":"..."
+      "emoji": "🔢",
+      "title": "",
+      "body": ""
     },
     {
-      "emoji":"💡",
-      "title":"...",
-      "body":"..."
+      "emoji": "🚀",
+      "title": "",
+      "body": ""
     }
   ]
 }
-Generate EXACTLY 3 pages.
-Do not generate a fourth page, each a DIFFERENT, SPECIFIC ${passion} scenario — not the same generic setup with different numbers. Curriculum-accurate for Class ${cls} ${subject}. NO questions anywhere.`, 900, passion, topic);
-}
 
+`, 1400, passion, topic);
+}
 export async function fetchDeepDive(passion, subject, topic, cls) {
   return callAI(`TASK: Give a DEEP DIVE on "${topic}" in ${subject} for Class ${cls}, following your generation procedure.
 
