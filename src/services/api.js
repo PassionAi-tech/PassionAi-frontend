@@ -214,7 +214,8 @@ This lesson will be displayed on a mobile app.
 STRICT RULES:
 
 • Maximum 80 words PER PAGE.
-• Introduction must have exactly 3 short mobile pages.
+• Every lesson stage must follow the page count requested by the task.
+• Each page should feel like one swipe/card.
 • Each page should feel like one swipe/card.
 • Maximum 2 sentences per paragraph.
 • Use short paragraphs.
@@ -377,48 +378,59 @@ Return ONLY valid JSON:
 `, 1400, passion, topic);
 }
 export async function fetchDeepDive(passion, subject, topic, cls) {
-  return callAI(`TASK: Give a DEEP DIVE on "${topic}" in ${subject} for Class ${cls}, following your generation procedure.
+  return callAI(`TASK: Give a DEEP DIVE on "${topic}" in ${subject} for Class ${cls}, following your passion-first teaching procedure.
 
-Go deeper than an introduction — harder scenarios, real precision. For each page: find a SPECIFIC ${passion} scenario (not a generic one wearing a ${passion} label), run the self-check, teach through it, connect back to the textbook term.
+This is a mobile lesson. Create EXACTLY 3 deep dive pages.
 
-Return ONLY valid JSON, no markdown:
+Each page must:
+- Use a DIFFERENT specific ${passion} scenario.
+- Have a named professional/person.
+- Show why the concept is naturally needed in that situation.
+- Include real numbers when the concept requires calculation.
+- Connect back to the official textbook term.
+- Be concise and easy to read.
+
+PAGE 1:
+Teach the main concept deeply through a real ${passion} professional situation.
+
+PAGE 2:
+Teach a harder application where the student must think like a professional.
+
+PAGE 3:
+Show a real-world ${passion} use case or advanced application.
+
+Rules:
+- No generic examples.
+- No "Imagine football" or "Let's take football as an example".
+- The passion must be the environment, not decoration.
+- No questions.
+- Keep each body under 80 words.
+- Return ONLY valid JSON.
+
+Format:
+
 {
   "pages": [
     {
       "emoji": "🤯",
-      "title": "[Specific ${passion} scenario name]",
-      "body": "Take the MAIN formula of ${topic}. Find where it's secretly already running inside a specific ${passion} moment. Solve with real numbers. Push further — change one number, solve again. Name the textbook formula."
+      "title": "",
+      "body": ""
     },
     {
       "emoji": "⚡",
-      "title": "[Specific ${passion} scenario name for the shortcut]",
-      "body": "A trick/pattern that makes ${topic} faster, discovered through a ${passion} scenario. Long method vs shortcut, same ${passion} numbers. When it fails."
-    },
-    {
-      "emoji": "🌍",
-      "title": "[Specific ${passion} scenario name — Level 1]",
-      "body": "A realistic ${passion} problem requiring ${topic}, full real numbers, solved step by step. Each step explained in terms of what's happening in the scenario, not just the maths."
-    },
-    {
-      "emoji": "🔥",
-      "title": "[Specific ${passion} scenario name — Level 2, harder]",
-      "body": "A harder, DIFFERENT ${passion} scenario combining multiple steps. Full working. What to do if stuck at each step."
-    },
-    {
-      "emoji": "❌",
-      "title": "[Specific ${passion} scenario where mistakes happen]",
-      "body": "Three common mistakes in ${topic}, each shown going wrong INSIDE a ${passion} scenario (not abstract). Wrong working vs correct working, same scenario, side by side."
+      "title": "",
+      "body": ""
     },
     {
       "emoji": "🏆",
-      "title": "[Specific real ${passion} professional/technology context]",
-      "body": "How ${topic} is genuinely used by real ${passion} professionals or technology, with an advanced worked example and full calculation."
+      "title": "",
+      "body": ""
     }
   ]
 }
-Every page must be a DIFFERENT, SPECIFIC scenario with real ${passion} numbers. No generic examples wearing a ${passion} costume. NO questions. Curriculum-accurate for Class ${cls}.`, 1000, passion, topic);
-}
 
+`, 1800, passion, topic);
+}
 export async function fetchMastery(passion, subject, topic, cls) {
   return callAI(`TASK: Show real-life applications of "${topic}" in ${subject} for Class ${cls}, following your generation procedure.
 
