@@ -225,20 +225,23 @@ STRICT RULES:
 
 Use this exact structure:
 
-🏆 Mission
-(1 sentence)
+PAGE 1:
+- Title
+- Hook
+- Real passion scenario
+- Explain the first idea naturally
 
-⚽ Story
-(2–3 sentences)
+PAGE 2:
+- Continue the same concept deeper
+- Show professional thinking
+- Use real numbers/examples when needed
 
-💡 Learn
-(4–6 short points)
+PAGE 3:
+- Apply the concept
+- Connect clearly to the textbook term
+- End with why this matters in the passion
 
-✅ Final Answer
-(1–2 lines)
-
-🎮 Fun Fact
-(1 sentence)
+Each page must feel like a swipe card in a learning app.
 
 Do NOT explain every tiny mathematical step unless absolutely necessary.
 
