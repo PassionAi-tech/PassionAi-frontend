@@ -191,7 +191,7 @@ PROFESSIONAL IMMERSION RULES
 - Do not output your Step 1/2/3 reasoning — only the final Step 4/5 content, in the JSON format requested by the task.`;
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 30000);
+  const timeout = setTimeout(() => controller.abort(), 60000);
 
   // ── DIAGNOSTIC LOGGING ────────────────────────────────────────────
   // NOTE: this calls OUR backend (API_BASE).
