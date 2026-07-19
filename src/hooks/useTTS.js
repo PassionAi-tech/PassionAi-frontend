@@ -9,23 +9,32 @@ export function useTTS() {
     setSpeaking(false);
     clearInterval(resumeRef.current);
     const go = () => {
-      const utt  = new SpeechSynthesisUtterance(text);
-      utt.rate   = 1.08; utt.pitch = 1.3; utt.volume = 1;
-      const vs   = window.speechSynthesis.getVoices();
-      // log available voices so user can see what's available
-      console.log("Available voices:", vs.map(v=>v.name).join(", "));
-      // try to find the most natural young-sounding voice
-      const pick = vs.find(v=>/Aaron|Eddy|Reed|Rocko|Shelley|Grandpa|Junior|Superstar/i.test(v.name))
-                || vs.find(v=>/Google UK English Male|Daniel/i.test(v.name))
-                || vs.find(v=>/Google US English/i.test(v.name)&&!v.name.toLowerCase().includes("female"))
-                || vs.find(v=>v.lang.startsWith("en-US")&&!v.name.toLowerCase().includes("female"))
-                || vs.find(v=>v.lang.startsWith("en")) || vs[0];
-      if (pick) utt.voice = pick;
-      utt.onstart = () => { setSpeaking(true); resumeRef.current = setInterval(()=>{ if(window.speechSynthesis.paused) window.speechSynthesis.resume(); },5000); };
-      utt.onend   = () => { setSpeaking(false); clearInterval(resumeRef.current); };
-      utt.onerror = () => { setSpeaking(false); clearInterval(resumeRef.current); };
-      window.speechSynthesis.speak(utt);
-    };
+  console.log("Speaking...");
+  console.log("Voices:", window.speechSynthesis.getVoices());
+
+  const utt = new SpeechSynthesisUtterance(text);
+
+  utt.rate = 1;
+  utt.pitch = 1;
+  utt.volume = 1;
+
+  utt.onstart = () => {
+    console.log("Speech started");
+    setSpeaking(true);
+  };
+
+  utt.onend = () => {
+    console.log("Speech ended");
+    setSpeaking(false);
+  };
+
+  utt.onerror = (e) => {
+    console.error("Speech error:", e);
+    setSpeaking(false);
+  };
+
+  window.speechSynthesis.speak(utt);
+};
     if (window.speechSynthesis.getVoices().length > 0) setTimeout(go, 200);
     else { window.speechSynthesis.onvoiceschanged = () => { setTimeout(go,200); window.speechSynthesis.onvoiceschanged=null; }; setTimeout(go,700); }
   },[]);
