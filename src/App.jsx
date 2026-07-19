@@ -14,7 +14,7 @@ import { fetchIntro, fetchDeepDive, fetchMastery, FB_INTRO, FB_DEEPDIVE, FB_MAST
 import { C } from "./styles/theme";
 
 export default function PassionAI() {
-  const [screen,     setScreen]     = useState("register");
+  const [screen,     setScreen]     = useState("register
   const [username,   setUsername]   = useState("");
   const [password,   setPassword]   = useState("");
   const [confirm,    setConfirm]    = useState("");
@@ -91,7 +91,9 @@ export default function PassionAI() {
 
         {isOnboard&&screen!=="login"&&(
           <div style={{padding:"20px 22px 0",display:"flex",flexDirection:"column",gap:"8px"}}>
-            <div style={{fontSize:"14px",fontWeight:"800",letterSpacing:"1.5px",color:C.accentHover}}>PASSION<span style={{color:C.accent}}>AI</span></div>
+            <div style={{fontSize:"14px",fontWeight:"800",letterSpacing:"1.5px",color:C.accentHover}}>
+  Passion<span style={{color:C.accent}}>-Ai</span>
+</div>
             <div style={{height:"4px",background:C.surface,borderRadius:"99px",overflow:"hidden"}}>
               <div style={{height:"100%",width:`${onboardPct}%`,background:`linear-gradient(90deg,${C.accent},#D4A017)`,borderRadius:"99px",transition:"width .5s ease"}}/>
             </div>
