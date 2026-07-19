@@ -286,7 +286,14 @@ Write like an amazing teacher, not like a textbook.
       status: res.status, ok: res.ok, statusText: res.statusText,
     });
 
-    if (res.status===429) { console.warn("[callAI] Quota/rate-limit hit (429)"); return { quota:true }; }
+    if (res.status === 429) {
+  console.warn("[callAI] Quota/rate-limit hit (429)");
+
+  return {
+    error: true,
+    quota: true
+  };
+}
 
     if (!res.ok) {
       // Backend forwards Anthropic's real status/body here, so this now
