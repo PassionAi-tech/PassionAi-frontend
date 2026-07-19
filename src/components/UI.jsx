@@ -143,7 +143,9 @@ export function TopBar({pct,xp,level,streak,gems,onBack,label}) {
   return (
     <div style={{padding:"20px 22px 0",display:"flex",flexDirection:"column",gap:"10px"}}>
       <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-        <div style={{fontSize:"14px",fontWeight:"800",letterSpacing:"1.5px",color:C.accentHover}}>PASSION<span style={{color:C.accent}}>AI</span></div>
+        <div style={{fontSize:"14px",fontWeight:"800",letterSpacing:"1.5px",color:C.accentHover}}>
+  Passion<span style={{color:C.accent}}>-Ai</span>
+</div>
         {onBack&&<button onClick={onBack} style={{background:"transparent",border:"none",cursor:"pointer",fontSize:"20px",color:C.muted,padding:"4px 8px"}}>←</button>}
       </div>
       <div style={{height:"4px",background:C.surface,borderRadius:"99px",overflow:"hidden"}}>
