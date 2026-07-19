@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { PASSIONS, SYLLABI, SSC_STATES, SSC_CURRICULUM, GRADES, CURRICULUM } from "../data/curriculum";
 import { C } from "../styles/theme";
 import { Pali, PaliBubble, PBtn, GBtn } from "./UI";
+import { API } from "../services/api";
 
 export function HeroHeader() {
   return (
