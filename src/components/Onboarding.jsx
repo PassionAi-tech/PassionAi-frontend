@@ -81,6 +81,10 @@ export function HeroHeader() {
     {f}
   </div>
 ))}
+      </div>   
+    </div>     
+  );           
+}              
 
 // ── shared field component ──
 export function AuthField({icon,label,value,onChange,type="text",placeholder,onKeyDown,focused,onFocus,onBlur,valid,rightEl}) {
