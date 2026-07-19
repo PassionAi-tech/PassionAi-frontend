@@ -64,23 +64,23 @@ export function HeroHeader() {
         </div>
       </div>
       <div style={{display:"flex",gap:"7px",marginTop:"16px",flexWrap:"wrap",position:"relative"}}>
-        {["🎯 Personalised","🔊 Voice","⚔️ Challenges","🏆 XP"].map(f=>(
-<div
-  key={f}
-  style={{
-    background:"rgba(245,179,1,0.12)",
-    border:"1px solid rgba(245,179,1,0.35)",
-    borderRadius:"99px",
-    padding:"6px 12px",
-    fontSize:"10px",
-    fontWeight:"700",
-    color:"#F5B301",
-    backdropFilter:"blur(6px)"
-  }}
->
-  {f}
-</div>
-}
+        {["🎯 Personalised","🔊 Voice","⚔️ Challenges","🏆 XP"].map(f => (
+  <div
+    key={f}
+    style={{
+      background:"rgba(245,179,1,0.12)",
+      border:"1px solid rgba(245,179,1,0.35)",
+      borderRadius:"99px",
+      padding:"6px 12px",
+      fontSize:"10px",
+      fontWeight:"700",
+      color:"#F5B301",
+      backdropFilter:"blur(6px)"
+    }}
+  >
+    {f}
+  </div>
+))}
 
 // ── shared field component ──
 export function AuthField({icon,label,value,onChange,type="text",placeholder,onKeyDown,focused,onFocus,onBlur,valid,rightEl}) {
