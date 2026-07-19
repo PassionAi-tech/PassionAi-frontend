@@ -255,22 +255,31 @@ export function LoginScreen({username,setUsername,password,setPassword,onNext,on
   const [loginError, setLoginError] = useState("");
   const canEnter = username.trim().length>=3 && password.length>=4;
 
-  const handleLogin = () => {
-    setLoginError("");
-    try {
-      const existing = JSON.parse(localStorage.getItem("passionai_users")||"{}");
-      const key = username.trim().toLowerCase();
-      if (!existing[key]) {
-        setLoginError("No user found with that username. New here? Sign up first.");
-        return;
-      }
-      if (existing[key].password !== password) {
-        setLoginError("Incorrect password. Try again.");
-        return;
-      }
-    } catch(e) {}
+  const handleLogin = async () => {
+  setLoginError("");
+
+  try {
+    const result = await API.login(
+      username.trim(),
+      password
+    );
+
+    if (result.error) {
+      setLoginError(result.message || "Login failed");
+      return;
+    }
+
+    localStorage.setItem(
+      "passionai_user",
+      JSON.stringify(result.user)
+    );
+
     onNext();
-  };
+
+  } catch(err) {
+    setLoginError("Something went wrong. Try again.");
+  }
+};
 
   return (
     <div style={{flex:1,display:"flex",flexDirection:"column",overflowY:"auto"}}>
