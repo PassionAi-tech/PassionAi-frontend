@@ -16,6 +16,7 @@ export function ChallengeScreen({passion,subject,topic,cls,difficulty,gameState,
   const [feedback,  setFeedback]  = useState(null);
   const [fbLoading, setFbLoading] = useState(false);
   const [score,     setScore]     = useState(0);
+  const [page, setPage] = useState(1);
   const {speak,stop,speaking}     = useTTS();
   const pLabel   = PASSIONS.find(p=>p.id===passion)?.label||passion;
   const diffData = DIFFICULTIES.find(d=>d.id===difficulty)||DIFFICULTIES[0];
@@ -36,20 +37,19 @@ export function ChallengeScreen({passion,subject,topic,cls,difficulty,gameState,
     return () => { cancelled = true; clearTimeout(fallbackTimer); };
   },[]);
 
-  const cur    = questions?.[qIdx];
-  const totalQ = questions?.length||5;
-
+ const totalQ = 3;
+const cur = questions?.[page - 1];
   // Auto-read question ONCE when it appears
   const spokenQRef = useRef(-1);
   useEffect(()=>{
     if (!cur || loading) return;
-    if (spokenQRef.current === qIdx) return;
-    spokenQRef.current = qIdx;
+    if (spokenQRef.current === page) return;
+spokenQRef.current = page;
     const t = setTimeout(()=>{
       speak(cur.question);
     }, 500);
     return ()=>clearTimeout(t);
-  },[qIdx, cur, loading]);
+  },[page, cur, loading]);
 
   const submit = async()=>{
     if (!answer.trim()) return;
@@ -63,6 +63,8 @@ Return ONLY valid JSON, no markdown:
 {"correct":true or false,"energy":"LEGENDARY! 🔥 or Close one! 💪","message":"2 sentences. If correct: hype using ${pLabel}. If wrong: use ${pLabel} scenario to explain the correct method clearly. Casual teen tone. No new questions."}`,200,passion,topic);
       if (!res||res.quota) throw new Error();
       fb = res;
+      // Debug
+console.log("AI Response:", fb);
     } catch {
       const ok = cur.answer==="open"||answer.trim().toLowerCase().replace(/\s/g,"").includes(cur.answer.toLowerCase().replace(/[^a-z0-9]/g,""));
       fb={correct:ok,energy:ok?"LEGENDARY! 🔥":"Close! Let's learn! 💪",message:ok?cur.explanation:`The correct answer is: ${cur.answer}. ${cur.explanation}`};
@@ -73,19 +75,27 @@ Return ONLY valid JSON, no markdown:
     setTimeout(()=>speak(`${fb.energy} ${fb.message}`),300);
   };
 
-  const nextQ = ()=>{
-    stop();
-    const newScore = score+(feedback?.correct?1:0);
-    if (qIdx<totalQ-1) { setQIdx(i=>i+1); setAnswer(""); setHint(false); setFeedback(null); }
-    else onComplete(newScore, totalQ);
-  };
+  const nextQ = () => {
+  stop();
+
+  const newScore = score + (feedback?.correct ? 1 : 0);
+
+  if (page < 3) {
+    setPage(page + 1);
+    setAnswer("");
+    setHint(false);
+    setFeedback(null);
+  } else {
+    onComplete(newScore, 3);
+  }
+};
 
   return (
     <div style={{flex:1,display:"flex",flexDirection:"column",position:"relative"}}>
       {quota&&<QuotaOverlay onClose={()=>setQuota(false)}/>}
-      <TopBar pct={questions?((qIdx+1)/totalQ)*100:0}
+      <TopBar pct={(page/3)*100}
         xp={gameState.xp} level={gameState.level} streak={gameState.streak} gems={gameState.gems}
-        label={`⚔️ ${diffData.label} Challenge · Q${qIdx+1} of ${totalQ}`} onBack={()=>{stop();onBack();}}/>
+        label={`⚔️ Challenge ${page} of 3`} onBack={()=>{stop();onBack();}}/>
 
       <div style={{flex:1,padding:"14px 22px 22px",display:"flex",flexDirection:"column",gap:"14px",overflowY:"auto"}}>
         {/* difficulty badge */}
@@ -107,7 +117,7 @@ Return ONLY valid JSON, no markdown:
           <>
             {/* Character asks the question */}
             <CharacterSpeech passionId={passion} text={cur.question} speaking={speaking}
-              forcepose={["explain","think"][qIdx%2]}
+              forcepose={["explain", "think", "cheer"][(page - 1) % 3]}
               onSpeak={()=>speaking?stop():speak(cur.question)}/>
 
             {hint&&(
@@ -142,10 +152,12 @@ Return ONLY valid JSON, no markdown:
               onSpeak={()=>speaking?stop():speak(`${feedback.energy} ${feedback.message}`)}/>
             <div style={{background:C.accentSoft,border:`1px solid ${C.accent}44`,borderRadius:"12px",padding:"10px 16px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
               <span style={{fontSize:"13px",color:C.muted,fontWeight:"600"}}>Score</span>
-              <span style={{fontSize:"16px",fontWeight:"900",color:C.accent}}>{score+(feedback.correct?1:0)} / {qIdx+1}</span>
+              <span style={{fontSize:"16px",fontWeight:"900",color:C.accent}}>{score + (feedback.correct ? 1 : 0)} / 3</span>
             </div>
             <PBtn col={diffData.color} onClick={nextQ}>
-              {qIdx<totalQ-1?"Next Question →":"See Results 🏁"}
+             {page < 3
+ ? "Continue →"
+ : "Finish Challenge 🏁"}
             </PBtn>
           </div>
         )}
