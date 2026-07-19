@@ -347,7 +347,16 @@ console.log("%c[callAI] Successfully parsed lesson JSON — REAL AI-GENERATED CO
 }
 
 export async function fetchIntro(passion, subject, topic, cls) {
-  return callAI(`TASK: Create the INTRODUCTION of "${topic}" for Class ${cls} ${subject}.
+  const result = await callAI(`TASK: Create the INTRODUCTION...
+  
+  ...your existing prompt...
+
+  `, 1400, passion, topic);
+
+  console.log("fetchIntro result:", result);
+
+  return result;
+}.
 
 IMPORTANT:
 This is the first lesson screen.
