@@ -6,40 +6,79 @@ import { Pali, PaliBubble, PBtn, GBtn } from "./UI";
 export function HeroHeader() {
   return (
     <div style={{
-      background:"linear-gradient(160deg,#1A1200 0%,#2D1F00 40%,#1A1200 100%)",
+      background:"linear-gradient(160deg,#0F0F10 0%,#1A1A1A 50%,#0B0B0B 100%)",
       padding:"32px 24px 24px",position:"relative",overflow:"hidden",flexShrink:0,
     }}>
-      <div style={{position:"absolute",top:"-40px",right:"-30px",width:"180px",height:"180px",background:"radial-gradient(circle,#D4A01740 0%,transparent 70%)",pointerEvents:"none"}}/>
-      <div style={{position:"absolute",bottom:"-20px",left:"-20px",width:"120px",height:"120px",background:"radial-gradient(circle,#FF6B2B30 0%,transparent 70%)",pointerEvents:"none"}}/>
+      <div style={{position:"absolute",top:"-40px",right:"-30px",width:"180px",height:"180px",background:"radial-gradient(circle,#F5B30140 0%,transparent 70%)",pointerEvents:"none"}}/>
+      <div style={{position:"absolute",bottom:"-20px",left:"-20px",width:"120px",height:"120px",background:"radial-gradient(circle,#F5B30120 0%,transparent 70%)",pointerEvents:"none"}}/>
       <div style={{display:"flex",alignItems:"center",gap:"12px",marginBottom:"20px",position:"relative"}}>
-        <div style={{width:"46px",height:"46px",borderRadius:"14px",background:"linear-gradient(135deg,#D4A017,#FF6B2B)",display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 4px 20px #D4A01760"}}>
+        <div style={{
+  width:"46px",
+  height:"46px",
+  borderRadius:"14px",
+  background:"linear-gradient(135deg,#F5B301,#D99800)",
+  display:"flex",
+  alignItems:"center",
+  justifyContent:"center",
+  boxShadow:"0 6px 24px rgba(245,179,1,0.35)"
+}}
+          display:"flex",alignItems:"center",justifyContent:"center"}}>
           <span style={{fontSize:"22px"}}>🎓</span>
         </div>
         <div>
-          <div style={{fontSize:"21px",fontWeight:"900",color:"#FFF8E1",letterSpacing:"-0.5px"}}>
-  Passion-<span style={{color:"#D4A017"}}>Ai</span>
+         <div style={{
+  fontSize:"22px",
+  fontWeight:"900",
+  color:"#FFFFFF",
+  letterSpacing:"-0.6px"
+}}>
+  Passion-<span style={{color:"#F5B301"}}>Ai</span>
 </div>
-          <div style={{fontSize:"10px",color:"#9A8040",fontWeight:"700",letterSpacing:"1.2px"}}>LEARN THROUGH WHAT YOU LOVE</div>
+          <div style={{fontSize:"10px",color:"#A8A8A8",fontWeight:"700",letterSpacing:"1.2px"}}>LEARN THROUGH WHAT YOU LOVE</div>
         </div>
       </div>
       <div style={{display:"flex",gap:"14px",alignItems:"flex-start",position:"relative"}}>
         <Pali mood="cheer" size={58}/>
         <div style={{flex:1}}>
-          <div style={{fontSize:"24px",fontWeight:"900",color:"#FFF8E1",lineHeight:1.2,letterSpacing:"-0.5px"}}>
-            Learn smarter,<br/><span style={{color:"#D4A017"}}>not harder.</span> 🔥
-          </div>
-          <div style={{fontSize:"12px",color:"#9A8040",marginTop:"7px",lineHeight:1.6}}>
+         <div
+  style={{
+    fontSize: "28px",
+    fontWeight: "900",
+    color: "#FFFFFF",
+    lineHeight: 1.15,
+    letterSpacing: "-0.8px",
+    textShadow: "0 2px 10px rgba(0,0,0,0.25)",
+  }}
+>
+  Learn smarter,
+  <br />
+  <span style={{ color: "#F5B301" }}>
+    not harder.
+  </span>{" "}
+  🔥
+</div>
+          <div style={{fontSize:"12px",color:"#B5B5B5",marginTop:"7px",lineHeight:1.6}}>
             AI lessons through your passion — football, music, gaming and more.
           </div>
         </div>
       </div>
       <div style={{display:"flex",gap:"7px",marginTop:"16px",flexWrap:"wrap",position:"relative"}}>
         {["🎯 Personalised","🔊 Voice","⚔️ Challenges","🏆 XP"].map(f=>(
-          <div key={f} style={{background:"#D4A01718",border:"1px solid #D4A01740",borderRadius:"99px",padding:"4px 10px",fontSize:"10px",fontWeight:"700",color:"#D4A017"}}>{f}</div>
-        ))}
-      </div>
-    </div>
-  );
+<div
+  key={f}
+  style={{
+    background:"rgba(245,179,1,0.12)",
+    border:"1px solid rgba(245,179,1,0.35)",
+    borderRadius:"99px",
+    padding:"6px 12px",
+    fontSize:"10px",
+    fontWeight:"700",
+    color:"#F5B301",
+    backdropFilter:"blur(6px)"
+  }}
+>
+  {f}
+</div>
 }
 
 // ── shared field component ──
@@ -72,9 +111,11 @@ export function AuthBtn({canSubmit,onClick,activeLabel,inactiveLabel}) {
         width:"100%",padding:"17px",borderRadius:"18px",border:"none",
         cursor:canSubmit?"pointer":"not-allowed",fontFamily:"inherit",
         fontSize:"15px",fontWeight:"800",letterSpacing:".3px",transition:"all .3s ease",
-        background:canSubmit?"linear-gradient(135deg,#D4A017,#FF6B2B)":"linear-gradient(135deg,#5C3D00,#4A2D00)",
-        color:canSubmit?"#fff":"#8B6914",
-        boxShadow:canSubmit?"0 8px 32px #D4A01750":"none",
+        background: canSubmit
+  ? "linear-gradient(135deg,#F5B301,#D99800)"
+  : "linear-gradient(135deg,#BDBDBD,#9E9E9E)",
+color: canSubmit ? "#121212" : "#666666",
+boxShadow: canSubmit ? "0 10px 30px rgba(245,179,1,0.35)" : "none",
       }}>
       {canSubmit?activeLabel:inactiveLabel}
     </button>
@@ -117,7 +158,7 @@ export function RegisterScreen({username,setUsername,password,setPassword,confir
   return (
     <div style={{flex:1,display:"flex",flexDirection:"column",overflowY:"auto"}}>
       <HeroHeader/>
-      <div style={{flex:1,padding:"22px 22px 28px",display:"flex",flexDirection:"column",gap:"14px",background:"#FFFBF0"}}>
+      <div style={{flex:1,padding:"22px 22px 28px",display:"flex",flexDirection:"column",gap:"14px",background:"#F8F8F8"}}>
         <div>
           <div style={{fontSize:"20px",fontWeight:"900",color:C.text}}>Create your account 🚀</div>
           <div style={{fontSize:"12px",color:C.muted,marginTop:"3px"}}>Set up your username and password to get started</div>
@@ -170,7 +211,7 @@ export function RegisterScreen({username,setUsername,password,setPassword,confir
         </button>
 
         <div style={{textAlign:"center"}}>
-          <div style={{fontSize:"11px",color:C.dimmed,fontWeight:"600"}}>Made with ❤️ by PassionAI</div>
+          <div style={{fontSize:"11px",color:C.dimmed,fontWeight:"600"}}>Made with ❤️ by Passion-AI</div>
         </div>
       </div>
     </div>
@@ -206,7 +247,7 @@ export function LoginScreen({username,setUsername,password,setPassword,onNext,on
   return (
     <div style={{flex:1,display:"flex",flexDirection:"column",overflowY:"auto"}}>
       <HeroHeader/>
-      <div style={{flex:1,padding:"22px 22px 28px",display:"flex",flexDirection:"column",gap:"14px",background:"#FFFBF0"}}>
+      <div style={{flex:1,padding:"22px 22px 28px",display:"flex",flexDirection:"column",gap:"14px",background:"#F8F8F8"}}>
         <div>
           <div style={{fontSize:"20px",fontWeight:"900",color:C.text}}>Welcome back! 👋</div>
           <div style={{fontSize:"12px",color:C.muted,marginTop:"3px"}}>Sign in to continue your journey</div>
