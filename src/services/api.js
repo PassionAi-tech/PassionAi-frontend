@@ -40,7 +40,7 @@ export const API = {
 
 function cleanJson(raw) {
   const s = raw.replace(/```json|```/gi,"").trim();
-  const m = s.match(/\{[\s\S]*\}/);
+  {const m = s.match(/\{[\s\S]*\}/);}
   return m ? m[0] : s;
 }
 /**
@@ -324,7 +324,10 @@ console.log("%c[callAI] Successfully parsed lesson JSON — REAL AI-GENERATED CO
     console.error("%c[callAI] FETCH THREW — could not reach the backend at all (is it running? is API_BASE correct?)", "color:#EF4444;font-weight:bold", {
       endpoint, name: e.name, message: e.message, stack: e.stack,
     });
-    return null;
+    return {
+    error: true,
+    network: true
+};
   }
 }
 
@@ -438,46 +441,53 @@ Format:
 `, 1800, passion, topic);
 }
 export async function fetchMastery(passion, subject, topic, cls) {
-  return callAI(`TASK: Show real-life applications of "${topic}" in ${subject} for Class ${cls}, following your generation procedure.
+  return callAI(`
 
-Show how ${topic} genuinely operates inside real ${passion} careers, technology, and famous moments — not generic "this is used in sports" statements. Find the SPECIFIC place, run the self-check, connect back to the textbook term.
+TASK:
+Create the MASTERY stage for "${topic}".
 
-Return ONLY valid JSON, no markdown:
+Create EXACTLY 3 mobile pages.
+
+PAGE 1
+• Show a REAL professional ${passion} situation.
+• Explain how ${topic} is used.
+• Use real numbers.
+
+PAGE 2
+• Show a DIFFERENT real career or technology.
+• Apply the textbook concept.
+• Explain why professionals need it.
+
+PAGE 3
+• Finish with one inspiring real-world application.
+• Connect back to the textbook term.
+• End by congratulating the learner.
+
+Maximum 80 words per page.
+
+Return ONLY JSON:
+
 {
-  "pages": [
+  "pages":[
     {
-      "emoji": "🌍",
-      "title": "[Specific real ${passion} situation name]",
-      "body": "A specific real-world ${passion} situation where ${topic} is used constantly. Actual calculation with real numbers. What the answer means in that ${passion} context. Name the textbook formula."
+      "emoji":"🌍",
+      "title":"",
+      "body":""
     },
     {
-      "emoji": "💼",
-      "title": "[Specific ${passion} career/role name]",
-      "body": "A specific ${passion} job/role that uses ${topic} daily. One real scenario from their actual work, with numbers, showing exactly how they'd apply it."
+      "emoji":"💼",
+      "title":"",
+      "body":""
     },
     {
-      "emoji": "📱",
-      "title": "[Specific ${passion} technology/equipment name]",
-      "body": "A specific piece of real ${passion} technology or equipment relying on ${topic}. How the formula works inside it, with real numbers."
-    },
-    {
-      "emoji": "🏆",
-      "title": "[Specific ${passion} moment/decision name]",
-      "body": "A realistic ${passion} moment decided by ${topic} — a close call, a strategic decision. Full maths/science behind it, fully worked. What it proved."
-    },
-    {
-      "emoji": "🚀",
-      "title": "[Specific future ${passion} application name]",
-      "body": "How ${topic} will shape ${passion}'s future — a specific emerging use (analytics, equipment design, AI coaching), explained with the underlying concept."
-    },
-    {
-      "emoji": "🎓",
-      "title": "You've Mastered It!",
-      "body": "One final hard ${passion} scenario combining everything from this chapter, fully solved, formulas named. Then: why mastering ${topic} makes you sharper in ${passion} and in life."
+      "emoji":"🏆",
+      "title":"You've Mastered It!",
+      "body":""
     }
   ]
 }
-Every page must be a SPECIFIC, real ${passion} numbers. Inspiring, accurate, practical. NO questions.`, 900, passion, topic);
+
+`,900,passion,topic);
 }
 
 // fallbacks
@@ -516,14 +526,25 @@ export const FB_CHALLENGE = (topic) => ({questions:[
   {question:`How does ${topic} connect to something you already know?`,answer:"open",hint:"Connect it to something familiar.",explanation:`Making connections between new and familiar concepts is key to understanding.`},
   {question:`If you had to teach ${topic} to a friend, what would you say first?`,answer:"open",hint:"Start with the simplest explanation.",explanation:`Teaching a concept shows true mastery. Keep it simple.`},
 ]});
-export const FB_MASTERY = (topic,p) => ({pages:[
-  {emoji:"🌍",title:"Everyday Life",body:`${topic} is everywhere — shopping, cooking, travel. You use it without even knowing.`},
-  {emoji:"💼",title:"Careers That Use It",body:`Engineers, scientists, designers, coaches — all rely on ${topic}. It opens real doors.`},
-  {emoji:"📱",title:"In Technology",body:`The apps on your phone, the games you play — all built using principles from ${topic}.`},
-  {emoji:"⚽",title:`In ${p}`,body:`${p} professionals use ${topic} constantly — from planning to performance analysis.`},
-  {emoji:"🚀",title:"The Future",body:`As AI and tech grow, ${topic} becomes even more valuable. Mastering it now puts you ahead.`},
-  {emoji:"🎓",title:"You've Mastered It!",body:`Full journey complete: Introduction → Deep Dive → Challenge → Mastery. You're unstoppable. Keep going! 🔥`},
-]});
+export const FB_MASTERY = (topic,p)=>({
+  pages:[
+    {
+      emoji:"🌍",
+      title:"Real World",
+      body:`Professionals in ${p} rely on ${topic} every day to make better decisions and improve performance.`
+    },
+    {
+      emoji:"💼",
+      title:"Career Application",
+      body:`Whether analysing matches, building technology, or solving real problems, ${topic} is an essential professional skill.`
+    },
+    {
+      emoji:"🏆",
+      title:"You've Mastered It!",
+      body:`Congratulations! You completed Introduction, Deep Dive, Challenge and Mastery. You now understand how ${topic} works both in school and in the real world.`
+    }
+  ]
+});
 
 
 /**
