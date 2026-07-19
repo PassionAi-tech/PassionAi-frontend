@@ -49,7 +49,15 @@ try {
           { reason: res?.quota ? "quota/rate-limit" : res?.status ? `HTTP ${res.status}` : res===null ? "fetch threw / network or auth failure" : "unknown", details: res }
         );
         if (res?.quota) setQuota(true);
-        res = fallbackFn(topic, pLabel);
+        const fb = fallbackFn(topic, pLabel);
+
+console.log(
+  "%c[ContentScreen] USING FALLBACK CONTENT",
+  "color:#FF6B2B;font-weight:bold",
+  fb
+);
+
+res = fb;
       } else {
         console.log("%c[ContentScreen] AI generation SUCCEEDED — using real personalized content", "color:#22C97A;font-weight:bold");
       }
