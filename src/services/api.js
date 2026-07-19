@@ -40,7 +40,7 @@ export const API = {
 
 function cleanJson(raw) {
   const s = raw.replace(/```json|```/gi,"").trim();
-  {const m = s.match(/\{[\s\S]*\}/);}
+  const m = s.match(/\{[\s\S]*\}/);
   return m ? m[0] : s;
 }
 /**
