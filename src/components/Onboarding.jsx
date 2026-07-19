@@ -141,24 +141,46 @@ export function RegisterScreen({username,setUsername,password,setPassword,confir
   const cValid  = confirm===password&&confirm.length>=4;
   const canNext = uValid&&pValid&&cValid;
 
-  const handleNext = () => {
-    if (!uValid) { setError("Username must be at least 3 characters."); return; }
-    if (!pValid) { setError("Password must be at least 4 characters."); return; }
-    if (password!==confirm) { setError("Passwords don't match. Check again."); return; }
-    // check if username already taken
-    try {
-      const existing = JSON.parse(localStorage.getItem("passionai_users")||"{}");
-      if (existing[username.trim().toLowerCase()]) {
-        setError("Username already taken. Pick a different one.");
-        return;
-      }
-      // save new user
-      existing[username.trim().toLowerCase()] = { username:username.trim(), password };
-      localStorage.setItem("passionai_users", JSON.stringify(existing));
-    } catch(e) {}
+ const handleNext = async () => {
+  if (!uValid) {
+    setError("Username must be at least 3 characters.");
+    return;
+  }
+
+  if (!pValid) {
+    setError("Password must be at least 4 characters.");
+    return;
+  }
+
+  if (password !== confirm) {
+    setError("Passwords don't match. Check again.");
+    return;
+  }
+
+  try {
+    const result = await API.register(
+      username.trim(),
+      password
+    );
+
+    if (result.error) {
+      setError(result.message || "Registration failed");
+      return;
+    }
+
+    localStorage.setItem(
+      "passionai_user",
+      JSON.stringify(result.user)
+    );
+
     setError("");
     onNext();
-  };
+
+  } catch(err) {
+    setError("Something went wrong. Try again.");
+  }
+};
+
 
   return (
     <div style={{flex:1,display:"flex",flexDirection:"column",overflowY:"auto"}}>
