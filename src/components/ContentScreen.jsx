@@ -30,7 +30,7 @@ export function ContentScreen({passion,subject,topic,cls,stage,fetchFn,fallbackF
         setIdx(0); setLoading(false);
         setTimeout(()=>setVisible(true),120);
       }
-    }, 60000);
+    }, 10000);
     (async()=>{
       let res;
 
