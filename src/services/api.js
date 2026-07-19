@@ -346,17 +346,7 @@ console.log("%c[callAI] Successfully parsed lesson JSON — REAL AI-GENERATED CO
   }
 }
 
-export async function fetchIntro(passion, subject, topic, cls) {
-  const result = await callAI(`TASK: Create the INTRODUCTION...
-  
-  ...your existing prompt...
-
-  `, 1400, passion, topic);
-
-  console.log("fetchIntro result:", result);
-
-  return result;
-}
+const result = await callAI(`TASK: Create the INTRODUCTION...
 
 IMPORTANT:
 This is the first lesson screen.
@@ -375,18 +365,8 @@ Use a different ${passion} situation.
 
 PAGE 3:
 Explain why "${topic}" matters in real ${passion} careers or real life.
-Prepare the student for the next stage.
-
-RULES:
-- Each page maximum 70 words.
-- Short mobile-friendly paragraphs.
-- No questions.
-- No markdown.
-- Do not use "Imagine football" or "Let's take football as an example".
-- The passion must naturally be part of the explanation.
 
 Return ONLY valid JSON:
-
 {
   "title": "${topic}",
   "pages": [
@@ -409,7 +389,6 @@ Return ONLY valid JSON:
 }
 
 `, 1400, passion, topic);
-}
 export async function fetchDeepDive(passion, subject, topic, cls) {
   return callAI(`TASK: Give a DEEP DIVE on "${topic}" in ${subject} for Class ${cls}, following your passion-first teaching procedure.
 
