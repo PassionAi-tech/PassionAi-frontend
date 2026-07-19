@@ -48,8 +48,18 @@ try {
           "color:#EF4444;font-weight:bold;font-size:13px",
           { reason: res?.quota ? "quota/rate-limit" : res?.status ? `HTTP ${res.status}` : res===null ? "fetch threw / network or auth failure" : "unknown", details: res }
         );
-        if (res?.quota) setQuota(true);
-        const fb = fallbackFn(topic, pLabel);
+       if (res?.quota) {
+  setQuota(true);
+}
+
+const fb = fallbackFn(topic, pLabel);
+
+setPages(fb.pages || []);
+setIdx(0);
+setLoading(false);
+setTimeout(()=>setVisible(true),120);
+
+return;
 
 console.log(
   "%c[ContentScreen] USING FALLBACK CONTENT",
