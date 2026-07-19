@@ -14,7 +14,7 @@ import { fetchIntro, fetchDeepDive, fetchMastery, FB_INTRO, FB_DEEPDIVE, FB_MAST
 import { C } from "./styles/theme";
 
 export default function PassionAI() {
-  const [screen,     setScreen]     = useState("register;
+  const [screen,     setScreen]     = useState("register");
   const [username,   setUsername]   = useState("");
   const [password,   setPassword]   = useState("");
   const [confirm,    setConfirm]    = useState("");
