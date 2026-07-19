@@ -12,19 +12,20 @@ export function HeroHeader() {
       <div style={{position:"absolute",top:"-40px",right:"-30px",width:"180px",height:"180px",background:"radial-gradient(circle,#F5B30140 0%,transparent 70%)",pointerEvents:"none"}}/>
       <div style={{position:"absolute",bottom:"-20px",left:"-20px",width:"120px",height:"120px",background:"radial-gradient(circle,#F5B30120 0%,transparent 70%)",pointerEvents:"none"}}/>
       <div style={{display:"flex",alignItems:"center",gap:"12px",marginBottom:"20px",position:"relative"}}>
-        <div style={{
-  width:"46px",
-  height:"46px",
-  borderRadius:"14px",
-  background:"linear-gradient(135deg,#F5B301,#D99800)",
-  display:"flex",
-  alignItems:"center",
-  justifyContent:"center",
-  boxShadow:"0 6px 24px rgba(245,179,1,0.35)"
-}}
-          display:"flex",alignItems:"center",justifyContent:"center"}}>
-          <span style={{fontSize:"22px"}}>🎓</span>
-        </div>
+        <div
+  style={{
+    width: "46px",
+    height: "46px",
+    borderRadius: "14px",
+    background: "linear-gradient(135deg,#F5B301,#D99800)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    boxShadow: "0 6px 24px rgba(245,179,1,0.35)",
+  }}
+>
+  <span style={{ fontSize: "22px" }}>🎓</span>
+</div>
         <div>
          <div style={{
   fontSize:"22px",
