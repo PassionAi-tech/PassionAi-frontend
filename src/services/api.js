@@ -536,13 +536,25 @@ export const FB_INTRO = (topic,p) => ({
     }
   ]
 });
-export const FB_DEEPDIVE = (topic,p) => ({pages:[
-  {emoji:"🤯",title:"Mind-blowing Fact",body:`${topic} has been used for thousands of years. Ancient civilisations applied it — even in early versions of ${p}.`},
-  {emoji:"📜",title:"The History",body:`Great thinkers spent centuries developing ${topic}. What you learn in one lesson took humans generations to figure out.`},
-  {emoji:"🌍",title:"Real Example 1",body:`Every time you watch ${p}, ${topic} is quietly running the show — from scores to strategies.`},
-  {emoji:"⚡",title:"Real Example 2",body:`Engineers, doctors, scientists use ${topic} every single day. It's not just school — it's a real-world superpower.`},
-  {emoji:"🏆",title:"Expert Insight",body:`Pros who master ${topic} early get a serious edge. You're getting that edge right now.`},
-]});
+export const FB_DEEPDIVE = (topic,p) => ({
+  pages:[
+    {
+      emoji:"🤯",
+      title:"The Big Idea",
+      body:`${topic} is a powerful concept used by professionals in ${p}. Understanding it helps experts make smarter decisions.`
+    },
+    {
+      emoji:"⚡",
+      title:"Professional Thinking",
+      body:`A skilled ${p} professional uses the same principles behind ${topic} to analyse situations, solve problems, and improve performance.`
+    },
+    {
+      emoji:"🏆",
+      title:"Real World Mastery",
+      body:`Mastering ${topic} gives you a deeper understanding of how this knowledge connects school learning with real ${p} careers.`
+    }
+  ]
+});
 export const FB_CHALLENGE = (topic) => ({questions:[
   {question:`Describe the main idea of ${topic} in one sentence.`,answer:"open",hint:"Think about what you learned in Introduction.",explanation:`${topic} has a core idea that everything else builds on.`},
   {question:`Give a real-world example of ${topic}.`,answer:"open",hint:"Think about everyday life.",explanation:`${topic} appears in many places in daily life.`},
