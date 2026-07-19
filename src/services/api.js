@@ -389,59 +389,55 @@ Return ONLY valid JSON:
 }
 
 `, 1400, passion, topic);
-export async function fetchDeepDive(passion, subject, topic, cls) {
-  return callAI(`TASK: Give a DEEP DIVE on "${topic}" in ${subject} for Class ${cls}, following your passion-first teaching procedure.
+export async function fetchIntro(passion, subject, topic, cls) {
+  const result = await callAI(`
+TASK: Create the INTRODUCTION for "${topic}" in ${subject} for Class ${cls}.
 
-This is a mobile lesson. Create EXACTLY 3 deep dive pages.
+IMPORTANT:
+This is the first lesson screen.
+Do NOT complete the whole chapter.
+The goal is to make the student understand the chapter and become curious.
 
-Each page must:
-- Use a DIFFERENT specific ${passion} scenario.
-- Have a named professional/person.
-- Show why the concept is naturally needed in that situation.
-- Include real numbers when the concept requires calculation.
-- Connect back to the official textbook term.
-- Be concise and easy to read.
+Create EXACTLY 3 mobile pages.
 
 PAGE 1:
-Teach the main concept deeply through a real ${passion} professional situation.
+Explain what "${topic}" is about.
+Use a natural ${passion} situation.
 
 PAGE 2:
-Teach a harder application where the student must think like a professional.
+Explain the first important idea of "${topic}".
+Use a different ${passion} situation.
 
 PAGE 3:
-Show a real-world ${passion} use case or advanced application.
+Explain why "${topic}" matters in real ${passion} careers or real life.
 
-Rules:
-- No generic examples.
-- No "Imagine football" or "Let's take football as an example".
-- The passion must be the environment, not decoration.
-- No questions.
-- Keep each body under 80 words.
-- Return ONLY valid JSON.
-
-Format:
+Return ONLY valid JSON:
 
 {
+  "title": "${topic}",
   "pages": [
     {
-      "emoji": "🤯",
+      "emoji": "📖",
       "title": "",
       "body": ""
     },
     {
-      "emoji": "⚡",
+      "emoji": "🔢",
       "title": "",
       "body": ""
     },
     {
-      "emoji": "🏆",
+      "emoji": "🚀",
       "title": "",
       "body": ""
     }
   ]
 }
+`, 1400, passion, topic);
 
-`, 1800, passion, topic);
+  console.log("fetchIntro result:", result);
+
+  return result;
 }
 export async function fetchMastery(passion, subject, topic, cls) {
   return callAI(`
