@@ -356,7 +356,7 @@ export async function fetchIntro(passion, subject, topic, cls) {
   console.log("fetchIntro result:", result);
 
   return result;
-}.
+}
 
 IMPORTANT:
 This is the first lesson screen.
