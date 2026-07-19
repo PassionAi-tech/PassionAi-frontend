@@ -16,7 +16,9 @@ export function HeroHeader() {
           <span style={{fontSize:"22px"}}>🎓</span>
         </div>
         <div>
-          <div style={{fontSize:"21px",fontWeight:"900",color:"#FFF8E1",letterSpacing:"-0.5px"}}>Passion<span style={{color:"#D4A017"}}>AI</span></div>
+          <div style={{fontSize:"21px",fontWeight:"900",color:"#FFF8E1",letterSpacing:"-0.5px"}}>
+  Passion-<span style={{color:"#D4A017"}}>Ai</span>
+</div>
           <div style={{fontSize:"10px",color:"#9A8040",fontWeight:"700",letterSpacing:"1.2px"}}>LEARN THROUGH WHAT YOU LOVE</div>
         </div>
       </div>
