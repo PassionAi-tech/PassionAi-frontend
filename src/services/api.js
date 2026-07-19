@@ -346,57 +346,8 @@ console.log("%c[callAI] Successfully parsed lesson JSON — REAL AI-GENERATED CO
   }
 }
 
-const result = await callAI(`TASK: Create the INTRODUCTION...
-
-IMPORTANT:
-This is the first lesson screen.
-Do NOT complete the whole chapter.
-The goal is to make the student understand the chapter and become curious.
-
-Create EXACTLY 3 mobile pages.
-
-PAGE 1:
-Explain what "${topic}" is about.
-Use a natural ${passion} situation.
-
-PAGE 2:
-Explain the first important idea of "${topic}".
-Use a different ${passion} situation.
-
-PAGE 3:
-Explain why "${topic}" matters in real ${passion} careers or real life.
-
-Return ONLY valid JSON:
-{
-  "title": "${topic}",
-  "pages": [
-    {
-      "emoji": "📖",
-      "title": "",
-      "body": ""
-    },
-    {
-      "emoji": "🔢",
-      "title": "",
-      "body": ""
-    },
-    {
-      "emoji": "🚀",
-      "title": "",
-      "body": ""
-    }
-  ]
-}
-
-`, 1400, passion, topic);
 export async function fetchIntro(passion, subject, topic, cls) {
-  const result = await callAI(`
-TASK: Create the INTRODUCTION for "${topic}" in ${subject} for Class ${cls}.
-
-IMPORTANT:
-This is the first lesson screen.
-Do NOT complete the whole chapter.
-The goal is to make the student understand the chapter and become curious.
+  return callAI(`TASK: Create the INTRODUCTION for "${topic}" in ${subject} for Class ${cls}.
 
 Create EXACTLY 3 mobile pages.
 
@@ -433,11 +384,51 @@ Return ONLY valid JSON:
     }
   ]
 }
+
 `, 1400, passion, topic);
+}
 
-  console.log("fetchIntro result:", result);
+export async function fetchDeepDive(passion, subject, topic, cls) {
+  return callAI(`
+TASK: Give a DEEP DIVE on "${topic}" in ${subject} for Class ${cls}.
 
-  return result;
+Create EXACTLY 3 mobile pages.
+
+PAGE 1:
+Teach the main concept deeply through a real ${passion} situation.
+
+PAGE 2:
+Show a harder application using ${passion}.
+
+PAGE 3:
+Connect the concept back to the textbook term.
+
+Rules:
+- Use real ${passion} scenarios.
+- Keep each page under 80 words.
+- Return ONLY valid JSON.
+
+{
+  "pages": [
+    {
+      "emoji": "🤯",
+      "title": "",
+      "body": ""
+    },
+    {
+      "emoji": "⚡",
+      "title": "",
+      "body": ""
+    },
+    {
+      "emoji": "🏆",
+      "title": "",
+      "body": ""
+    }
+  ]
+}
+
+`, 1800, passion, topic);
 }
 export async function fetchMastery(passion, subject, topic, cls) {
   return callAI(`
